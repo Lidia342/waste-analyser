@@ -15,10 +15,10 @@ const pool = new Pool({
   port: '5432'
 });
 
-app.get('/data', async (req, res) => {
+app.get('/item/:id', async (req, res) => {
     try {
     const client = await pool.connect();
-    const result = await client.query('SELECT * from waste');
+    const result = await client.query("SELECT weekly_waste from waste where item = "+"'"+req.params.id+"'");
     const results = { 'results': (result) ? result.rows : null};
     res.send(results)
     client.release();
@@ -26,5 +26,8 @@ app.get('/data', async (req, res) => {
     res.send("Error " + err);
   }
 })
+
+
+app.listen(3000); 
 
 
