@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --color-body: -webkit-linear-gradient(left, #a445b2, #fa4299);
+}
+
+body {
+    margin    : 0;
+    padding   : 0;
+    background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+}
+
+html {
+    min-height: 100%;
+}
+
+main {
+    display             : flex;
+    justify-content     : center;
+    align-items         : center;
+    height              : 42.3rem;
+}
+
+.login {
+    display         : flex;
+    flex-direction  : column;
+    align-items     : center;
+    justify-content : center;
+    background-color: rgb(44, 44, 47);
+    width           : 25rem;
+    height          : 30rem;
+    border-radius   : 1rem;
+}
+
+h1 {
+    color: white;
+}
+
+h3 {
+    color        : white;
+    margin-bottom: 3rem;
+}
+
+.form {
+    display            : flex;
+    flex-direction     : column;
+    align-items        : center;
+}
+
+.form label {
+    margin-top   : 1rem;
+    margin-bottom: 1rem;
+    color        : white;
+}
+
+.form input {
+    border-radius   : 0.5rem;
+    border-color    : black;
+    border-width    : 1.5px;
+    height: 1.3rem;
+}
+
+.form button {
+    margin-top      : 1rem;
+    border-radius   : 0.5rem;
+    cursor          : pointer;
+    background-color: black;
+    color           : white;
+    width           : 5rem;
+    height          : 1.5rem;
+}
+@media(max-width: 753px){
+    .wrapper{
+      max-width: 700px;
+    }
+    .wrapper .card{
+      width: calc(50% - 20px);
+      margin-bottom: 20px;
+    }
+    data{
+      font-size: 2em;
+    }
+    h1 { 
+      font-size: 24px; 
+   }
+  }
+  @media only screen and (max-width: 505px){
+    .wrapper{
+      max-width: 500px;
+    }
+    .wrapper .card{
+      width: 100%;
+    }
+    data{
+      font-size: 2em;
+    }
+    h1 { 
+      font-size: 10px; 
+   }
+  }
+  @media(max-width: 320px) {
+    .wrapper{
+      max-width: 300px;
+    }
+    .wrapper .card{
+      width: 40%;
+    }
+    h1 { 
+      font-size: 10px; 
+   }
+  
+  }
+
