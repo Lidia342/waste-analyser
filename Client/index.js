@@ -4,7 +4,7 @@ var value
     var str = input
     $.ajax({
       type: "GET",
-      url: "http://localhost:3000/item/"+ input,
+      url: "https://server-waste.herokuapp.com/item/"+ input,
       dataType: "json",
       success: function (response) {
         response = Object.values(response)
@@ -32,11 +32,6 @@ var value
    getData('Fruits'); 
    getData('Cereal'); 
    getData('Oil'); 
-
-
-
-
-
 
    let options = {
     startAngle: -1.55,
