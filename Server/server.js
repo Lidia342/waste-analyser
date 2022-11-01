@@ -1,5 +1,7 @@
 const { Pool } = require('pg');
 const express = require('express');
+const { json } = require("body-parser");
+const bodyParser = require('body-parser');
 const app = express()
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 const PORT = process.env.PORT || 3000
@@ -13,6 +15,44 @@ const pool = new Pool({
   database: 'd3bi6fk0qqlq7d',
   host: 'ec2-52-30-75-37.eu-west-1.compute.amazonaws.com',
   port: '5432'
+});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
+    next();
+  });
+var jsonParser = bodyParser.json()
+
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+app.post('/login', jsonParser, async (req, res) => {
+
+  var password = req.body.password;
+  var email = req.body.username;
+  try {
+  const client = await pool.connect();
+  const result = await client.query("SELECT * FROM users WHERE username='" + email + "' AND password='" + password +"'");
+  const results = { 'result': (result) ? result.rows : null };
+
+  
+  if (results.result.length > 0) {
+   // session.loggedin = true;
+   // session.email = email;
+    res.send("1");
+  } else {
+    res.send("0");
+  }
+  client.release();
+  
+  } catch (err) {
+    console.error(err);
+  }
 });
 
 app.get('/item/:id', async (req, res) => {
