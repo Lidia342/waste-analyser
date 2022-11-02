@@ -9,9 +9,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js"></script>
   </head>
   <body>
+    <div class="options">
+      <select id="options">
+        <option  value="all">All</option>
+        <option  value="Salad">Vegtable</option>
+        <option id="Meat" value="Meat">Meat</option>
+        <option value="Oil">Oil</option>
+        <option value="Tomato">Tomato</option>
+        <option value="Cereal">Cereal</option>
+        <option value="Bread">Bread</option>
+        <option value="Fish">Fish</option>
+        <option value="Fruits">Fruits</option>
+
+      </select>
+    </div>
     <div class="data">
     <div class="wrapper">
-      <div class="card">
+      <div class="card bread">
         <div class="circle">
           <div class="bar"></div>
           <div class="box"><span></span></div>
@@ -76,6 +90,7 @@
       </div>
     </div>
 </div>
+<button id="signout"> Sign out </button>
     <script src="index.js"></script>
   </body>
 </html>
